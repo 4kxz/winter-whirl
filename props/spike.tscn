@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://ed1yjm2vn3ph"]
+
+[ext_resource type="Texture2D" uid="uid://dwfqajg0a4e" path="res://assets/kenney_platformer_art_deluxe/Ice/Tiles/spikeTop.png" id="1_ew0yq"]
+[ext_resource type="Script" path="res://props/spike.gd" id="1_hc50t"]
+[ext_resource type="AudioStream" uid="uid://cv21xbkwf5wba" path="res://assets/audio/glass.mp3" id="3_ic8bu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6fuo"]
+size = Vector2(12, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s53a2"]
+radius = 8.0
+
+[node name="Spike" type="RigidBody2D"]
+mass = 0.2
+freeze = true
+max_contacts_reported = 1
+script = ExtResource("1_hc50t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_b6fuo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 35)
+texture = ExtResource("1_ew0yq")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ic8bu")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_s53a2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

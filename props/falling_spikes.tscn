@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp3hfok188vif"]
+
+[ext_resource type="Script" path="res://props/falling_spikes.gd" id="1_j3aqv"]
+
+[node name="FallingSpikes" type="Area2D"]
+script = ExtResource("1_j3aqv")
+metadata/_edit_group_ = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

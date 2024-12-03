@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsfn1ju8oso81"]
+
+[ext_resource type="Script" path="res://props/spikes.gd" id="1_7ojj2"]
+[ext_resource type="Texture2D" uid="uid://8vrdat8y5uw0" path="res://assets/kenney_platformer_art_deluxe/Ice/Tiles/spikesBottomAlt2.png" id="1_sv87q"]
+[ext_resource type="Texture2D" uid="uid://dotejy11loahn" path="res://assets/kenney_platformer_art_deluxe/Ice/Tiles/spikesBottomAlt.png" id="2_kj63d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5qaa"]
+size = Vector2(460, 20)
+
+[node name="Spikes" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_7ojj2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -11)
+shape = SubResource("RectangleShape2D_f5qaa")
+
+[node name="SpikesBottomAlt2" type="Sprite2D" parent="."]
+position = Vector2(-140, -35)
+texture = ExtResource("1_sv87q")
+
+[node name="SpikesBottomAlt6" type="Sprite2D" parent="."]
+position = Vector2(210, -35)
+texture = ExtResource("1_sv87q")
+
+[node name="SpikesBottomAlt3" type="Sprite2D" parent="."]
+position = Vector2(0, -35)
+texture = ExtResource("1_sv87q")
+
+[node name="SpikesBottomAlt" type="Sprite2D" parent="."]
+position = Vector2(-70, -35)
+texture = ExtResource("2_kj63d")
+
+[node name="SpikesBottomAlt7" type="Sprite2D" parent="."]
+position = Vector2(-210, -35)
+texture = ExtResource("2_kj63d")
+
+[node name="SpikesBottomAlt4" type="Sprite2D" parent="."]
+position = Vector2(70, -35)
+texture = ExtResource("2_kj63d")
+
+[node name="SpikesBottomAlt5" type="Sprite2D" parent="."]
+position = Vector2(140, -35)
+texture = ExtResource("2_kj63d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

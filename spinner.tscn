@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://c67xt86wwf4jy"]
+
+[ext_resource type="Script" path="res://spinner.gd" id="1_e3n1j"]
+[ext_resource type="Texture2D" uid="uid://un6mau6f2wfo" path="res://assets/kenney_platformer_art_deluxe/Candy/Tiles/lollipopRed.png" id="2_5ne51"]
+[ext_resource type="AudioStream" uid="uid://d01s3vw6xu6r1" path="res://assets/audio/groove-journey-210069.mp3" id="3_k3cih"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8wsv6"]
+bounce = 0.05
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3fl7t"]
+radius = 34.0147
+
+[node name="Spinner" type="RigidBody2D"]
+collision_layer = 3
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_8wsv6")
+script = ExtResource("1_e3n1j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3fl7t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_5ne51")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_k3cih")
+autoplay = true
