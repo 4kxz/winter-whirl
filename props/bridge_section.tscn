@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyup1yk4phjgf"]
+
+[ext_resource type="Texture2D" uid="uid://bxeqegwbc2llr" path="res://assets/kenney_platformer_art_deluxe/Ice/Tiles/treeTrunkBranch.png" id="1_vs6xp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ae0rw"]
+height = 60.0
+
+[node name="BridgeSection" type="RigidBody2D"]
+mass = 0.1
+linear_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ae0rw")
+
+[node name="TreeTrunkBranch" type="Sprite2D" parent="."]
+position = Vector2(-4.29153e-06, 25.187)
+scale = Vector2(0.857143, 1)
+texture = ExtResource("1_vs6xp")

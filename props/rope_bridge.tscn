@@ -1,0 +1,145 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj35kaxcbn7io"]
+
+[ext_resource type="PackedScene" uid="uid://dyup1yk4phjgf" path="res://props/bridge_section.tscn" id="1_qjc6r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2td3s"]
+
+[node name="RopeBridge" type="Node2D"]
+position = Vector2(40368.4, 6518.81)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-34.5625, 1.84521)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_2td3s")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="StaticBody2D"]
+node_a = NodePath("..")
+node_b = NodePath("../../BridgeSection")
+bias = 0.1
+
+[node name="BridgeSection" parent="." instance=ExtResource("1_qjc6r")]
+position = Vector2(10, 4)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(44, 4)
+node_a = NodePath("../BridgeSection")
+node_b = NodePath("../BridgeSection2")
+
+[node name="BridgeSection2" parent="." instance=ExtResource("1_qjc6r")]
+position = Vector2(78, 4)
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(112, 4)
+node_a = NodePath("../BridgeSection2")
+node_b = NodePath("../BridgeSection3")
+
+[node name="BridgeSection3" parent="." instance=ExtResource("1_qjc6r")]
+position = Vector2(146, 4)
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+position = Vector2(180, 4)
+node_a = NodePath("../BridgeSection3")
+node_b = NodePath("../BridgeSection4")
+
+[node name="BridgeSection4" parent="." instance=ExtResource("1_qjc6r")]
+position = Vector2(215, 4)
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="."]
+position = Vector2(249, 4)
+node_a = NodePath("../BridgeSection4")
+node_b = NodePath("../BridgeSection5")
+
+[node name="BridgeSection5" parent="." instance=ExtResource("1_qjc6r")]
+position = Vector2(283, 4)
+
+[node name="PinJoint2D5" type="PinJoint2D" parent="."]
+position = Vector2(317, 4)
+node_a = NodePath("../BridgeSection5")
+node_b = NodePath("../BridgeSection6")
+
+[node name="BridgeSection6" parent="." instance=ExtResource("1_qjc6r")]
+position = Vector2(351, 4)
+
+[node name="PinJoint2D6" type="PinJoint2D" parent="."]
+position = Vector2(385, 4)
+node_a = NodePath("../BridgeSection6")
+node_b = NodePath("../BridgeSection7")
+
+[node name="BridgeSection7" parent="." instance=ExtResource("1_qjc6r")]
+position = Vector2(419, 4)
+
+[node name="PinJoint2D7" type="PinJoint2D" parent="."]
+position = Vector2(453, 4)
+node_a = NodePath("../BridgeSection7")
+node_b = NodePath("../BridgeSection8")
+
+[node name="BridgeSection8" parent="." instance=ExtResource("1_qjc6r")]
+position = Vector2(487, 4)
+
+[node name="PinJoint2D8" type="PinJoint2D" parent="."]
+position = Vector2(521, 4)
+node_a = NodePath("../BridgeSection8")
+node_b = NodePath("../BridgeSection9")
+
+[node name="BridgeSection9" parent="." instance=ExtResource("1_qjc6r")]
+position = Vector2(556, 4)
+
+[node name="PinJoint2D9" type="PinJoint2D" parent="."]
+position = Vector2(590, 4)
+node_a = NodePath("../BridgeSection9")
+node_b = NodePath("../BridgeSection10")
+
+[node name="BridgeSection10" parent="." instance=ExtResource("1_qjc6r")]
+position = Vector2(624, 4)
+
+[node name="PinJoint2D10" type="PinJoint2D" parent="."]
+position = Vector2(658, 4)
+node_a = NodePath("../BridgeSection10")
+node_b = NodePath("../BridgeSection11")
+
+[node name="BridgeSection11" parent="." instance=ExtResource("1_qjc6r")]
+position = Vector2(692, 4)
+
+[node name="PinJoint2D11" type="PinJoint2D" parent="."]
+position = Vector2(726, 4)
+node_a = NodePath("../BridgeSection11")
+node_b = NodePath("../BridgeSection12")
+
+[node name="BridgeSection12" parent="." instance=ExtResource("1_qjc6r")]
+position = Vector2(761, 4)
+
+[node name="PinJoint2D12" type="PinJoint2D" parent="."]
+position = Vector2(795, 4)
+node_a = NodePath("../BridgeSection12")
+node_b = NodePath("../BridgeSection13")
+
+[node name="BridgeSection13" parent="." instance=ExtResource("1_qjc6r")]
+position = Vector2(829, 4)
+
+[node name="PinJoint2D13" type="PinJoint2D" parent="."]
+position = Vector2(863, 4)
+node_a = NodePath("../BridgeSection13")
+node_b = NodePath("../BridgeSection14")
+
+[node name="BridgeSection14" parent="." instance=ExtResource("1_qjc6r")]
+position = Vector2(897, 4)
+
+[node name="PinJoint2D14" type="PinJoint2D" parent="."]
+position = Vector2(931, 4)
+node_a = NodePath("../BridgeSection14")
+node_b = NodePath("../BridgeSection15")
+
+[node name="BridgeSection15" parent="." instance=ExtResource("1_qjc6r")]
+position = Vector2(965, 4)
+
+[node name="PinJoint2D15" type="PinJoint2D" parent="."]
+position = Vector2(999, 4)
+node_a = NodePath("../BridgeSection15")
+node_b = NodePath("../StaticBody2D2")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1012.44, 5.84521)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("CircleShape2D_2td3s")
