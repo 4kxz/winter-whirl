@@ -26,17 +26,18 @@ func _physics_process(delta):
 	if current_movement.length() > 0 and previous_movement.length() > 0:
 		var current_angle := current_movement.angle()
 		var prev_angle := previous_movement.angle()
-		
 		var angle_diff = current_angle - prev_angle
 		if angle_diff > PI:
 			angle_diff -= 2 * PI
 		elif angle_diff < -PI:
 			angle_diff += 2 * PI
-		
 		var mouse_angular_velocity = angle_diff / delta
-		var velocity_diff = mouse_angular_velocity - angular_velocity
 		
-		var target_torque = torque_strength * velocity_diff
+		var target_torque: float = 0
+		var same : bool = sign(mouse_angular_velocity) == sign(angular_velocity)
+		var faster : bool = abs(mouse_angular_velocity) > abs(angular_velocity)
+		if not same or (same and faster):
+			target_torque = torque_strength * (mouse_angular_velocity - angular_velocity)
 		torque = lerp(torque, target_torque, torque_smoothing)
 		apply_torque(torque)
 		
