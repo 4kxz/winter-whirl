@@ -23,7 +23,7 @@ ease = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(-411, -178)
+position = Vector2(28252, 8438)
 process_callback = 0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
@@ -32,7 +32,7 @@ process_physics_priority = 300
 script = ExtResource("14_x87kd")
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(-411, -178)
+position = Vector2(28252, 8438)
 script = ExtResource("3_cadfp")
 follow_mode = 2
 follow_target = NodePath("../Spinner")
@@ -44,7 +44,7 @@ script = ExtResource("4_ip77t")
 target = NodePath("../Spinner")
 
 [node name="Spinner" parent="." instance=ExtResource("4_euouk")]
-position = Vector2(-411, -178)
+position = Vector2(28252, 8438)
 
 [node name="Snowfield" parent="." instance=ExtResource("12_kkx2q")]
 

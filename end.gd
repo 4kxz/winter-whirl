@@ -4,11 +4,14 @@ const save_file: String = "user://best_time.data"
 
 var elapsed_time: float = 0
 var counting: bool = true
+var leaderboard: LeaderBoard
 
 @onready var timer_canvas: CanvasLayer = $TimerCanvasLayer
 @onready var timer_label: Label = %Timer
 @onready var end_canvas: CanvasLayer = $EndCanvasLayer
 @onready var end_label: Label = %EndLabel
+@onready var leaderboard_label: Label = %LeaderboardLabel
+@onready var player_name: LineEdit = %PlayerName
 
 func _process(delta):
 	if counting:
@@ -32,10 +35,14 @@ func _on_body_entered(body: Node2D) -> void:
 				best_time = saved_time
 		var file = FileAccess.open(save_file, FileAccess.WRITE)
 		file.store_var(best_time)
-		end_label.text = "Best time:\n%s\nCurrent time:\n%s" % [
-			_format_time(best_time),
+		end_label.text = "Current time:\n%s\nBest time:\n%s" % [
 			_format_time(elapsed_time),
+			_format_time(best_time),
 		]
+		leaderboard = LeaderBoard.new()
+		leaderboard.best_time = best_time
+		leaderboard.label = leaderboard_label
+		add_child(leaderboard)
 
 func _format_time(time) -> String:
 	var minutes = int(time / 60)
@@ -45,3 +52,8 @@ func _format_time(time) -> String:
 
 func _on_restart_button_pressed() -> void:
 	get_tree().reload_current_scene()
+
+func _on_submit_score_pressed() -> void:
+	if player_name.text and is_instance_valid(leaderboard):
+		leaderboard.change_player_name(player_name.text)
+		leaderboard.upload_score()

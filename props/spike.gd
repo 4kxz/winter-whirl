@@ -20,7 +20,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Spinner:
 		body.respawn = true
 
-func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
+func _on_body_shape_entered(_body_rid: RID, _body: Node, _body_shape_index: int, _local_shape_index: int) -> void:
 	if is_instance_valid(area):
 		audio.play()
 		area.queue_free()
